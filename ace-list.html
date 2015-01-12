@@ -1,0 +1,13 @@
+<h2>Directory</h2>
+<ace-button ng-click="create()">Create</ace-button>
+<ul>
+    <li ng-repeat="record in records">
+        {{record.name}}:{{record.number}}
+        <ace-button ng-click="edit({{record.id}})">Edit</ace-button>
+        <ace-button ng-click="delete({{record.id}})">Delete</ace-button>
+    </li>
+
+    <!--<li ng-repeat="record in records">-->
+        <!--<ace-record ace-record-id="{{record.id}}"></ace-record>-->
+    <!--</li>-->
+</ul>
