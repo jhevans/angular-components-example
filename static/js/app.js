@@ -5,11 +5,16 @@
 var directoryApp = angular.module("directory",['ngRoute']);
 
 directoryApp.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/list', {
+    $routeProvider.
+    when('/list', {
         templateUrl: 'list.html'
-    }).otherwise({
-            redirectTo: '/list'
-        })
+    }).
+    when('/edit', {
+        templateUrl: "edit.html"
+    }).
+    otherwise({
+        redirectTo: '/list'
+    });
 }]);
 
 directoryApp.directive("aceList", [function() {
@@ -17,8 +22,25 @@ directoryApp.directive("aceList", [function() {
         templateUrl: "ui/directory/ace-list.html",
         restrict: 'E',
         scope: {},
-        controller: function($scope, $iElement, $iAttributes) {
+        controller: function($scope) {
             return;
+        }
+    }
+}]);
+
+directoryApp.directive("aceEdit", ['$window', function() {
+    return {
+        templateUrl: "ui/directory/ace-edit.html",
+        restrict: 'E',
+        scope: {},
+        controller: function($scope, $window) {
+            $scope.cancel = function() {
+                $window.history.back();
+            };
+
+            $scope.submit = function() {
+
+            }
         }
     }
 }]);
@@ -28,7 +50,7 @@ directoryApp.directive("aceInput", [function() {
         templateUrl: "ui/common/ace-input.html",
         restrict: 'E',
         scope: {},
-        controller: function($scope, $iElement, $iAttributes) {
+        controller: function($scope) {
             return;
         }
     }
@@ -38,9 +60,10 @@ directoryApp.directive("aceButton", [function() {
     return {
         templateUrl: "ui/common/ace-button.html",
         restrict: 'E',
-        scope: {},
-        controller: function($scope, $iElement, $iAttributes) {
-            return;
+        scope: {
+            aceLabel: '@'
+        },
+        controller: function($scope) {
         }
     }
 }]);
@@ -50,7 +73,7 @@ directoryApp.directive("aceErrorMessage", [function() {
         templateUrl: "ui/common/ace-error-message.html",
         restrict: 'E',
         scope: {},
-        controller: function($scope, $iElement, $iAttributes) {
+        controller: function($scope) {
             return;
         }
     }
