@@ -1,12 +1,12 @@
 <h2>Edit</h2>
 <form name="recordEdit">
-    <!--<ace-input ng-model="record.name" required ng-minlength="3" ace-label="Name"></ace-input>-->
-    <!--<ace-error-message ng-show="!recordEdit.name.$valid.required">Name is a required field</ace-error-message>-->
-    <!--<ace-error-message ng-show="!recordEdit.name.valid.minlength">Name must be at least 3 characters</ace-error-message>-->
+    <ace-input ng-model="record.name" required ng-minlength="3" ace-label="Name"></ace-input>
+    <ace-error-message ng-show="!recordEdit.name.$valid.required">Name is a required field</ace-error-message>
+    <ace-error-message ng-show="!recordEdit.name.valid.minlength">Name must be at least 3 characters</ace-error-message>
 
-    <!--<ace-input ng-model="record.number" required ng-pattern="/(\d{5}\d?)[-. ](\d{5}\d?)/" ace-label="Number"></ace-input>-->
-    <!--<ace-error-message ng-show="!recordEdit.number.$valid.required">Number is a required field</ace-error-message>-->
-    <!--<ace-error-message ng-show="!recordEdit.number.$valid.pattern">Number is not a valid phone number</ace-error-message>-->
+    <ace-input ng-model="record.number" required ng-pattern="/(\d{5}\d?)[-. ](\d{5}\d?)/" ace-label="Number"></ace-input>
+    <ace-error-message ng-show="!recordEdit.number.$valid.required">Number is a required field</ace-error-message>
+    <ace-error-message ng-show="!recordEdit.number.$valid.pattern">Number is not a valid phone number</ace-error-message>
 
     <ace-button ng-click="save()" ace-label="Save"></ace-button>
     <ace-button ng-click="cancel()" ace-label="Cancel"></ace-button>
