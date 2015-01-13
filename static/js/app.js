@@ -45,8 +45,12 @@ directoryApp.directive("aceEdit", ['$window', '$routeParams', 'Record', function
                 $scope.record = record;
             };
 
-            if($routeParams.recordId !== undefined) {
+            function getRecord(recordId){
                 Record.find($routeParams.recordId).then(setRecord);
+            };
+
+            if($routeParams.recordId !== undefined) {
+                getRecord($routeParams.recordId);
             };
 
             $scope.cancel = function() {
@@ -54,7 +58,6 @@ directoryApp.directive("aceEdit", ['$window', '$routeParams', 'Record', function
             };
 
             $scope.save = function() {
-                debugger
                 console.log("Saving to record " + $scope.recordId);
                 Record.save($rootParams.recordId, $scope.record);
             };
@@ -66,9 +69,36 @@ directoryApp.directive("aceInput", [function() {
     return {
         templateUrl: "ui/common/ace-input.html",
         restrict: 'E',
-        scope: {},
+        require: ['ngModel'],
+        scope: {
+            aceLabel: '@'
+        },
+        link: function(scope, iAttrs, iElement, controllers) {
+            scope.modelCtrl = controllers[0];
+        },
         controller: function($scope) {
-            return;
+            $scope.data = {
+                value: ''
+            }
+            $scope.$watch(
+                function(){
+                    return $scope.modelCtrl.$modelValue;
+                },
+                function() {
+                    $scope.data.value = $scope.modelCtrl.$modelValue;
+                }
+            );
+
+
+            $scope.$watch(
+                function(){
+                    return $scope.data.value;
+                },
+                function() {
+                    $scope.modelCtrl.$setViewValue($scope.data.value);
+                }
+            )
+          // doss around
         }
     }
 }]);
@@ -117,7 +147,7 @@ directoryApp.run(['$httpBackend', function($httpBackend){
     },{
         id: 16,
         name: 'Murbs',
-        number: '53180 080000'
+        number: '053180 080000'
     }];
 
     $httpBackend.whenGET('records').respond(DEFAULT_RECORDS);
