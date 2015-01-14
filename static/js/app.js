@@ -120,8 +120,8 @@ directoryApp.directive("aceErrorMessage", [function() {
         templateUrl: "ui/common/ace-error-message.html",
         restrict: 'E',
         scope: {},
+        transclude: true,
         controller: function($scope) {
-            return;
         }
     }
 }]);
