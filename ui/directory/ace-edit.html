@@ -9,7 +9,7 @@
     <h2 ng-bind="record.name">record.name</h2>
     <h2 ng-bind="record.number"></h2>
 
-    <ace-input name='name' ng-model="record.name" required ng-minlength="3" ace-label="Name"></ace-input>
+    <ace-input name='name' ng-model="record.name" required minlength="3" ace-label="Name"></ace-input>
     <!--<ace-error-message ng-show="recordForm.name.$error.required">Name is a required field</ace-error-message>-->
     <ace-error-message ng-show="recordForm.name.$error.minlength">Name must be at least 3 characters</ace-error-message>
 
