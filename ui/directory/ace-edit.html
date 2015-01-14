@@ -13,7 +13,7 @@
     <ace-error-message ng-show="recordForm.name.$error.required">Name is a required field</ace-error-message>
     <ace-error-message ng-show="recordForm.name.$error.minlength">Name must be at least 3 characters</ace-error-message>
 
-    <ace-input name='number' ng-model="record.number" ng-required ng-pattern="/(\d{5}\d?)[-. ](\d{5}\d?)/" ace-label="Number"></ace-input>
+    <ace-input name='number' ng-model="record.number" required ng-pattern="/(\d{5}\d?)[-. ](\d{5}\d?)/" ace-label="Number"></ace-input>
     <ace-error-message ng-show="recordForm.number.$errors.required">Number is a required field</ace-error-message>
     <ace-error-message ng-show="recordForm.number.$errors.pattern">Number is not a valid phone number</ace-error-message>
 
