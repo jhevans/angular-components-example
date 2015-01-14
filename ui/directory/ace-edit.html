@@ -14,9 +14,9 @@
     <ace-error-message ng-show="recordForm.name.$error.minlength">Name must be at least 3 characters</ace-error-message>
 
     <ace-input name='number' ng-model="record.number" required pattern="[\d ]*" maxlength="15" ace-label="Number"></ace-input>
-    <ace-error-message ng-show="recordForm.number.$errors.required">Number is a required field</ace-error-message>
-    <ace-error-message ng-show="recordForm.number.$errors.pattern">Number is not a valid phone number</ace-error-message>
-    <ace-error-message ng-show="recordForm.number.$errors.maxlength">Number must be fewer than 15 characters</ace-error-message>
+    <ace-error-message ng-show="recordForm.number.$error.required">Number is a required field</ace-error-message>
+    <ace-error-message ng-show="recordForm.number.$error.pattern">Number is not a valid phone number</ace-error-message>
+    <ace-error-message ng-show="recordForm.number.$error.maxlength">Number must be fewer than 15 characters</ace-error-message>
 
     <ace-button ng-click="save()" ace-label="Save"></ace-button>
     <ace-button ng-click="cancel()" ace-label="Cancel"></ace-button>
